@@ -1,0 +1,5 @@
+VA1- shows ages grouped along the top and each bar is prior convictions for property along the bottom (0-3+).
+looking at "within 3 years" on the left in True and false blocks and prior convictions for violence are the height of the bar.
+education is in color, red is less than HS, orange is HS and blue is some college.
+**this chart has a lot of info to tak in BUT it also tells us a lot! young people dont have many prior convictions but are 
+going back to jail within three years. where we see older people having many more prior convictions but not quite going back within 3 years.
