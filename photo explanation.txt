@@ -3,3 +3,10 @@ looking at "within 3 years" on the left in True and false blocks and prior convi
 education is in color, red is less than HS, orange is HS and blue is some college.
 **this chart has a lot of info to tak in BUT it also tells us a lot! young people dont have many prior convictions but are 
 going back to jail within three years. where we see older people having many more prior convictions but not quite going back within 3 years.
+
+VA2- shows true on the left in orange for if someone was arrested within three year. this shows level of a positive drug test for each drug listed. 
+levels are individually small numbers, the code said it was the number from the drug test about how much drug was in their system, 
+the results are cumulative and could be a bit misleading because few people can have lots of THC in their system and many could have low levels of meth, etc
+but still an interesting find! what I found as i looked more was that THC was always the largest but otherwise things were pretty even, prior convictions evened out, etc.
+
+VA3- looking at ethnicity and gender breakdown, more men very obviously. more black men than white men, but interestingly more white women than black women, almost double. 
