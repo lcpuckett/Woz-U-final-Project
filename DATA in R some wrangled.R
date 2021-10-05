@@ -32,6 +32,7 @@ data2= na.omit(data1)
 
 str(data2)
 #everything is a factor with multiple levels, should be able to do some analysis and significant testing, or can recode data into numbers.
+<<<<<<< Updated upstream
 #les is doing all other needed recodes. 
 dataR= mutate(data2,Prior_Conviction_Episodes_Felony=recode(Prior_Conviction_Episodes_Felony,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
               Prior_Conviction_Episodes_Misd=recode(Prior_Conviction_Episodes_Misd,"0"=0, "1"=1, "2"=2, "3"= 3, "4 or more"= 4),
@@ -62,6 +63,39 @@ ggplot(dataR, aes(sample = Education_Level)) + geom_qq()
 #check correlation between some variables?
 
 
+=======
+#recoding prior convictions, education level and prison offense. les is doing all other needed recodes. 
+dataR= mutate(data2, Prior_Conviction_Episodes_Felony=dplyr::recode(Prior_Conviction_Episodes_Felony,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
+              Prior_Conviction_Episodes_Misd=dplyr::recode(Prior_Conviction_Episodes_Misd,"0"=0, "1"=1, "2"=2, "3"= 3, "4 or more"= 4),
+              Prior_Conviction_Episodes_Viol=dplyr::recode(Prior_Conviction_Episodes_Viol, "true"=0, "false"=1), 
+              Prior_Conviction_Episodes_Prop=dplyr::recode(Prior_Conviction_Episodes_Prop,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
+              Prior_Conviction_Episodes_Drug=dplyr::recode(Prior_Conviction_Episodes_Drug,"0"=0, "1"=1, "2 or more"= 2),
+              Prior_Conviction_Episodes_PPViolationCharges=dplyr::recode(Prior_Conviction_Episodes_PPViolationCharges,"true"=0, "false"=1),
+              Prior_Conviction_Episodes_DomesticViolenceCharges=dplyr::recode(Prior_Conviction_Episodes_DomesticViolenceCharges,"true"=0, "false"=1),
+              Prior_Conviction_Episodes_GunCharges=dplyr::recode(Prior_Conviction_Episodes_GunCharges,"true"=0, "false"=1),
+              Education_Level=dplyr::recode(Education_Level,"At least some college"=3, "High School Diploma"=2, "Less than HS diploma"=1),
+              Prison_Offense=dplyr::recode(Prison_Offense,"Drug"=0, "Other"=1, "Property"=2, "Violent/Non-Sex"= 3, "Violent/Sex"=4)
+)
+
+
+#POST-WRANGLE INFO (checking that wrangling of data works for our analysis)
+#to make histograms have to use recoded data.
+ggplot(dataR, aes(x = Prior_Conviction_Episodes_GunCharges)) + geom_histogram(binwidth = 0.5)
+ggplot(dataR, aes(x = Prior_Conviction_Episodes_Misd)) + geom_histogram(binwidth = 0.5)
+
+#can make bar charts without recode!
+ggplot(data2, aes(Age_at_Release))+ geom_bar()
+ggplot(data2, aes(Prior_Conviction_Episodes_Misd))+ geom_bar()
+barchart(data2$Age_at_Release)
+
+#cant check normality with categorical data
+#ggplot(dataR, aes(sample = Education_Level)) + geom_qq()
+
+
+#check correlation between some variables?
+
+
+>>>>>>> Stashed changes
 #DSO105 data time!
 #we could do some goodness of fit Chi squares with random guesses about probabilities of going back? perhaps need more background info about returning to prison
 #independent chi square to compare each! dont need to recode!use this to compare all the conviciton types to each other
@@ -80,4 +114,8 @@ ggplot(dataR, aes(sample = Education_Level)) + geom_qq()
 
 #want to ask joseph if we need to recode T/F data for analysis, or if recoding this data will affect our analysis for variance, or the counts of things.
 #can we analyze the T/F and the numbers data together?
+<<<<<<< Updated upstream
 #can use this data to compare with Recidivism within 3 years to ask "does having more prior convictions significantly affect the chances of being arrested again within three years?"
+=======
+#can use this data to compare with Recidivism within 3 years to ask "does having more prior convictions significantly affect the chances of being arrested again within three years?"
+>>>>>>> Stashed changes
