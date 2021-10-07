@@ -87,8 +87,19 @@ CrossTable(data2$Education_Level, data2$Prison_Offense, chisq = TRUE, expected =
 CrossTable(data2$Gender, data2$Recidivism_Within_3years, chisq = TRUE,mcnemar = TRUE, expected = TRUE, sresid=TRUE, format="SPSS")
 
 
-#homogeneity of variance tests, one way anova
+#homogeneity of variance tests, one way anova, need recode
 plotNormalHistogram(dataR$Education_Level)
-fligner.test(Education_Level ~ Prior_Conviction_Episodes_Misd, data=dataR)
+#flattened
+plotNormalHistogram(dataR$Prison_Offense)
+#flattened
+plotNormalHistogram(dataR$Prior_Conviction_Episodes_Drug)
+#flattened
+plotNormalHistogram(dataR$Prior_Conviction_Episodes_Felony)
+#flattened
+
+#none of our data is normal??
+
+fligner.test(Education_Level ~ Prison_Offense, data=dataR)
+fligner.test(Education_Level ~ Prior_Conviction_Episodes_Felony, data=dataR)
 #perform post hocs find where significant
 #repeated measure anovas?
