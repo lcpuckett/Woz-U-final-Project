@@ -4,6 +4,7 @@ data1 <- Data[ -c(5:8,10, 12:20,29:49,54) ]
 #made a table with just prior convictions if needed, used recoded data for any needed analysis
 priors= dataR[c(7:14)]
 
+#second data set to look at unemployment by month/ year and how it effects crime, need to do some analysis still!
 library(readxl)
 nojob= read_excel("C:/Users/latri/Desktop/SCI SCHOOLING/FINAL PROJECT/Woz-U-final-Project/Unemployment and Crime.xlsx")
 
@@ -86,8 +87,19 @@ CrossTable(data2$Education_Level, data2$Prison_Offense, chisq = TRUE, expected =
 CrossTable(data2$Gender, data2$Recidivism_Within_3years, chisq = TRUE,mcnemar = TRUE, expected = TRUE, sresid=TRUE, format="SPSS")
 
 
-#homogeneity of variance tests, one way anova
+#homogeneity of variance tests, one way anova, need recode
 plotNormalHistogram(dataR$Education_Level)
-fligner.test(Education_Level ~ Prior_Conviction_Episodes_Misd, data=dataR)
+#flattened
+plotNormalHistogram(dataR$Prison_Offense)
+#flattened
+plotNormalHistogram(dataR$Prior_Conviction_Episodes_Drug)
+#flattened
+plotNormalHistogram(dataR$Prior_Conviction_Episodes_Felony)
+#flattened
+
+#none of our data is normal??
+
+fligner.test(Education_Level ~ Prison_Offense, data=dataR)
+fligner.test(Education_Level ~ Prior_Conviction_Episodes_Felony, data=dataR)
 #perform post hocs find where significant
 #repeated measure anovas?
