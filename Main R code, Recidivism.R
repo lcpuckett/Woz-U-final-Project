@@ -4,6 +4,7 @@ data1 <- Data[ -c(5:8,10, 12:20,29:49,54) ]
 #made a table with just prior convictions if needed, used recoded data for any needed analysis
 priors= dataR[c(7:14)]
 
+#second data set to look at unemployment by month/ year and how it effects crime, need to do some analysis still!
 library(readxl)
 nojob= read_excel("C:/Users/latri/Desktop/SCI SCHOOLING/FINAL PROJECT/Woz-U-final-Project/Unemployment and Crime.xlsx")
 
