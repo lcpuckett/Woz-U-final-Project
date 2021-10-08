@@ -8,6 +8,9 @@ priors= dataR[c(7:14)]
 library(readxl)
 nojob= read_excel("C:/Users/latri/Desktop/SCI SCHOOLING/FINAL PROJECT/Woz-U-final-Project/Unemployment and Crime.xlsx")
 
+str(nojob)
+
+
 #all the packages!
 library(ggplot2)
 library(dbplyr)
@@ -71,6 +74,7 @@ ggplot(data2, aes(Recidivism_Arrest_Year2))+ geom_bar()
 ggplot(data2, aes(Recidivism_Arrest_Year3))+ geom_bar()
 ggplot(data2, aes(Recidivism_Within_3years))+ geom_bar()
 
+
 #cant check normality with categorical data
 ggplot(dataR, aes(sample = Education_Level)) + geom_qq()
 
@@ -87,6 +91,7 @@ CrossTable(data2$Education_Level, data2$Prison_Offense, chisq = TRUE, expected =
 CrossTable(data2$Gender, data2$Recidivism_Within_3years, chisq = TRUE,mcnemar = TRUE, expected = TRUE, sresid=TRUE, format="SPSS")
 
 
+
 #homogeneity of variance tests, one way anova, need recode
 plotNormalHistogram(dataR$Education_Level)
 #flattened
@@ -97,9 +102,15 @@ plotNormalHistogram(dataR$Prior_Conviction_Episodes_Drug)
 plotNormalHistogram(dataR$Prior_Conviction_Episodes_Felony)
 #flattened
 
-#none of our data is normal??
+plotNormalHistogram(nojob$`Total Crime Per Month`)
+#normally distributed
+plotNormalHistogram(nojob$`Unemployment in Georgia`)
+#normally distributed
+
 
 fligner.test(Education_Level ~ Prison_Offense, data=dataR)
 fligner.test(Education_Level ~ Prior_Conviction_Episodes_Felony, data=dataR)
+
+fligner.test(TotalCrime ~ Unemploy_Georgia, data=nojob)
 #perform post hocs find where significant
 #repeated measure anovas?
