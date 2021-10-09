@@ -77,7 +77,7 @@ ggplot(data2, aes(Recidivism_Within_3years))+ geom_bar()
 
 #cant check normality with categorical data
 ggplot(dataR, aes(sample = Education_Level)) + geom_qq()
-
+ggplot(nojob, aes(sample = TotalCrime)) + geom_qq()
 
 #check correlation between some variables?
 
@@ -114,3 +114,8 @@ fligner.test(Education_Level ~ Prior_Conviction_Episodes_Felony, data=dataR)
 fligner.test(TotalCrime ~ Unemploy_Georgia, data=nojob)
 #perform post hocs find where significant
 #repeated measure anovas?
+
+#correlation tests
+corr.test(x, y = NULL, use = "pairwise",method="pearson",adjust="holm", 
+          alpha=.05,ci=TRUE,minlength=5)
+corr.p(r,n,adjust="holm",alpha=.05,minlength=5,ci=TRUE)
