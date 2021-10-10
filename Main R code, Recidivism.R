@@ -34,7 +34,8 @@ data2= na.omit(data1)
 str(data2)
 #everything is a factor with multiple levels, should be able to do some analysis and significant testing, or can recode data into numbers.
 #recoding prior convictions, education level and prison offense. les is doing all other needed recodes. 
-dataR= mutate(data2, Prior_Conviction_Episodes_Felony=dplyr::recode(Prior_Conviction_Episodes_Felony,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
+dataR= mutate(data2, Prior_Arrest_Episodes_Drug=dplyr::recode(Prior_Arrest_Episodes_Drug,"0"=0, "1"=1, "2"=2, "3"= 3, "4"=4, "5 or more"=5),
+              Prior_Conviction_Episodes_Felony=dplyr::recode(Prior_Conviction_Episodes_Felony,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
               Prior_Conviction_Episodes_Misd=dplyr::recode(Prior_Conviction_Episodes_Misd,"0"=0, "1"=1, "2"=2, "3"= 3, "4 or more"= 4),
               Prior_Conviction_Episodes_Viol=dplyr::recode(Prior_Conviction_Episodes_Viol, "true"=0, "false"=1), 
               Prior_Conviction_Episodes_Prop=dplyr::recode(Prior_Conviction_Episodes_Prop,"0"=0, "1"=1, "2"=2, "3 or more"= 3),
@@ -49,10 +50,12 @@ dataR= mutate(data2, Prior_Conviction_Episodes_Felony=dplyr::recode(Prior_Convic
               Recidivism_Arrest_Year2=dplyr::recode( Recidivism_Arrest_Year2,"true"=0, "false"=1),
               Recidivism_Arrest_Year3=dplyr::recode( Recidivism_Arrest_Year3,"true"=0, "false"=1)
 )
-dataR1= dataR[, c(5,6,8,9,10,11,12,16:19)]
+
 
 #POST-WRANGLE INFO (checking that forms and types of data work for our analysis)
 #to make histograms have to use recoded data.
+ggplot(dataR, aes(x = Prior_Arrest_Episodes_Drug)) + geom_histogram(binwidth = 0.5)
+
 ggplot(dataR, aes(x= Prior_Conviction_Episodes_Felony))+geom_histogram(binwidth=0.5)
 
 ggplot(dataR, aes(x= Prior_Conviction_Episodes_Misd))+geom_histogram(binwidth=0.5)
@@ -115,14 +118,18 @@ chart.Correlation(nojob1, histogram=FALSE, method="pearson")
 #playing around with the correlation of new data set. Assault and Rape very correlated. Total crime and burglary/ larceny highly correlated.
 #unemployment and burglary are moderately correlated!
 
-chart.Correlation(dataR1, histogram=FALSE, method="pearson")
 #looking at certain convictions with education level shows there is moderate correlation, nothing highly correlated
+dataR1= dataR[, c(5,6,8,9,10,11,12,16:19)]
+#looking at education, prison offense and ARRESTS for drugs
+dataR2= dataR[, c(5:7, 16:19)]
+chart.Correlation(dataR1, histogram=FALSE, method="pearson")
+chart.Correlation(dataR2, histogram=FALSE, method="pearson")
+
 
 #making nice looking plots
-corr_matrix <- cor(dataR1)
-
+corr_matrix <- cor(dataR2)
 corrplot(corr_matrix, type="upper", order="hclust", p.mat = corr_matrix, sig.level = 0.01, insig="blank")
-#largest correlation between prison offense and prior drug convictions. small correlation between arrestest the first and third year
+
 corr_mat= cor(nojob1)
 corrplot(corr_mat, type="upper", order="hclust", p.mat = corr_matrix, sig.level = 0.01, insig="blank")
 # vehicle theft and larceny are positively correlated to unemployment. while (thankfully) rape is slightly negatively correlated. 
@@ -184,7 +191,3 @@ fligner.test(TotalCrime ~ Unemploy_Georgia, data=nojob)
 #perform post hocs find where significant
 #repeated measure anovas?
 
-#correlation tests, for looking at unemployment and crime by month
-corr.test(x, y = NULL, use = "pairwise",method="pearson",adjust="holm", 
-          alpha=.05,ci=TRUE,minlength=5)
-corr.p(r,n,adjust="holm",alpha=.05,minlength=5,ci=TRUE)
