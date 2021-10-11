@@ -10,3 +10,7 @@ the results are cumulative and could be a bit misleading because few people can 
 but still an interesting find! what I found as i looked more was that THC was always the largest but otherwise things were pretty even, prior convictions evened out, etc.
 
 VA3- looking at ethnicity and gender breakdown, more men very obviously. more black men than white men, but interestingly more white women than black women, almost double. 
+
+VA4- Im quite proud of this one! for the pretty colors alone. On the left we have total crime added up for each month of each year. alone the bottom are the months. 
+the bar colors are years and the width of the bar is the percentage of unemployment in Georgia. It is vert easy to see the bars get skinnier as they go down in total crime. 
+This means that unemployment was going down from 2013 to 2015, and so was crime!
