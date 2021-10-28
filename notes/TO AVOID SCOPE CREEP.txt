@@ -1,0 +1,104 @@
+I felt our project might get lost in the creep because there is so much data to analyze. I even find myself forgetting parts or the foundation of what we are looking at.
+so to help with that, I made this! I asked our first question again and put some answers with the "how" that we will find in our data. Mostly for me, but I hope its useful nonetheless.
+
+
+Why do people return to jail? (we have return data for 1,2,3 and within 3 years)
+
+Is it the type of offense? (prison offense VS recid)
+does recurring offenses give us a clue? (each convictions VS all 4 recid& compare)
+does a certian age make a difference? (age VS recid)
+Does having low education mean anything? (education vs. recid)
+does gender or race mean anything? (G/R vs recid)
+Is unemployment a factor? (crime VS unemployment)
+Does drug use play a role? (convictions on drugs single out for all 4 recid) 
+[or maybe even look at arrests for this one, goes 0 to 5 or more, which may have better correlation findings]
+--
+What can we do about all of this?
+-Look at trends in age vs. type of crime.
+-look at trends in average unemployment each year vs crime
+make statements to fixing these issues by... programs? need some good outside social info.
+
+
+
+Presentation Ideas:
+Title: Returning to jail, more than the crime
+Your Presenters: Les and Latrice, "elevator pitch"
+Project Background: "anecdotal stuff we found and Les' research
+Data from?
+Interesting trends
+Significant Stats (many graphs and numbers)
+-age
+-priors
+-education
+-race gender?
+-unemployment
+-drugs
+*****
+we are doing jail data. we personally feel this is important, have been affected by the prison system (family and friends) 
+and someone that used to work in prisons shared that men under 25 have better chance of not returning but past that they are
+ stuck in and out of jail for life
+
+
+do normal bar for prison offense, age at release, education, within three years 
+(so we built an idea about the type of person returning to jail)
+
+significant positive correlation with crime and unemployment
+data:  x and y
+t = 2.4204, df = 34, p-value = 0.021
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.06274641 0.63227710
+sample estimates:
+     cor 
+0.383379 
+
+high correlation and very significant for burgarly and unemployment
+data:  x and y
+t = 4.8623, df = 34, p-value = 2.589e-05
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.3950109 0.8005333
+sample estimates:
+      cor 
+0.6404341
+
+
+being arrested within three years is highly correlated with being arrested again within that first year. 
+less correlated as year increases. so we see that our assumed people will get arrested again within a year 
+(does the young people thing track right? yes, because from 30 to older goes up again, assuming older people getting out of jail will go right back.)
+data:  x and y
+t = 100.75, df = 22556, p-value < 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.5480448 0.5660447
+sample estimates:
+      cor 
+0.5571102
+0.3965583 YEAR 2
+0.288124 YEAR 3
+
+Going back in 1 year (is there a correlation between type of prior conviciton and...)
+ p =  2.096466e-29 Felony
+ p =  2.480982e-74 Misd
+ p =  4.323178e-08 DV
+ p =  3.935895e-07 violence
+p =  2.072056e-87 property
+p =  1.012044e-05 Drug
+ p =  4.857211e-24 Parole?
+p =  0.007238079 Gun 
+
+Within three years (is there a correlation between type of prior conviciton and...)
+ p =  5.054938e-60 Felony
+ p =  1.499764e-162 Misd
+p =  8.163754e-10 Violence
+p =  1.192821e-134 Property
+p =  6.323187e-28 Drug
+p =  2.099162e-50 Parole?
+p =  3.483925e-19 DV
+p =  7.488309e-06 Gun
+
+Prison offense (reiterates that year 1 is when most people return)
+p =  1.486091e-74 year 1
+p =  1.350871e-05 year 2
+p =  0.3963503 year 3
+p =  7.887262e-97 within 3
